@@ -7,5 +7,8 @@ class PageAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'views', 'likes')
 
-admin.site.register(Category, CategoryAdmin)
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug':('name',)}
+    
 admin.site.register(Page, PageAdmin)
+admin.site.register(Category, CategoryAdmin)
