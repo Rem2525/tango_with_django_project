@@ -22,17 +22,19 @@ class PageForm(forms.ModelForm):
                         help_text="Please enter the URL of the page.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
-class Meta:
+    class Meta:
 
-    model = Page
-    exclude = ('category',)
+        model = Page
+        exclude = ('category',)
 
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
+    
     class Meta:
         model = User
         fields = ('username', 'email', 'password',)
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
